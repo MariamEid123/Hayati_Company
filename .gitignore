@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Environment variables (NEVER commit these)
+.env
+
+# Data files (contain real orders, messages, analytics)
+data/orders.json
+data/contacts.json
+data/analytics.json
+# Keep products.json in git as it is the seed data
+# data/products.json
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Build
+dist/

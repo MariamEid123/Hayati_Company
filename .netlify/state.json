@@ -1,0 +1,21 @@
+{
+	"siteId": "9fbc90bf-40ce-4d01-abc0-d88e5d4f5fd9",
+	"dbConnectionString": "postgres://localhost:63777/postgres",
+	"geolocation": {
+		"data": {
+			"city": "Alexandria",
+			"country": {
+				"code": "EG",
+				"name": "Egypt"
+			},
+			"subdivision": {
+				"code": "ALX",
+				"name": "Alexandria"
+			},
+			"timezone": "Africa/Cairo",
+			"latitude": 31.2054,
+			"longitude": 29.9169
+		},
+		"timestamp": 1777484293903
+	}
+}

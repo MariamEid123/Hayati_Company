@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Admin Dashboard – Hayati Biscuits</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+     LOGIN SCREEN
+  ══════════════════════════════════════════ -->
+  <div id="login-screen">
+    <div class="login-card">
+      <div class="login-logo">
+        <div class="login-logo-circle">H</div>
+        <div>
+          <h1>Hayati Biscuits</h1>
+          <p>Admin Portal</p>
+        </div>
+      </div>
+
+      <div class="login-title">
+        <h2>Welcome back 👋</h2>
+        <p>Sign in to access the dashboard</p>
+      </div>
+
+      <div class="login-error" id="login-error">
+        <i class="fas fa-exclamation-circle"></i>
+        <span id="login-error-msg">Invalid username or password</span>
+      </div>
+
+      <div class="login-field">
+        <label for="l-user">Username</label>
+        <div class="login-field-wrap">
+          <i class="fas fa-user field-icon"></i>
+          <input type="text" id="l-user" placeholder="admin" autocomplete="username">
+        </div>
+      </div>
+
+      <div class="login-field">
+        <label for="l-pass">Password</label>
+        <div class="login-field-wrap">
+          <i class="fas fa-lock field-icon"></i>
+          <input type="password" id="l-pass" placeholder="••••••••" autocomplete="current-password">
+        </div>
+      </div>
+
+      <button class="login-btn" onclick="doLogin()">
+        <i class="fas fa-sign-in-alt"></i> Sign In
+      </button>
+
+      <p class="login-attempts-note" id="attempts-note"></p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+     DASHBOARD
+  ══════════════════════════════════════════ -->
+  <div id="dashboard" style="display:flex;">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="sidebar-logo">H</div>
+        <div class="sidebar-brand-text">
+          <h3>Hayati Admin</h3>
+          <p>Management Panel</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <p class="sidebar-section-label">Overview</p>
+        <button class="sidebar-item active" data-tab="analytics" onclick="switchTab('analytics')">
+          <i class="fas fa-chart-bar"></i> Analytics
+        </button>
+
+        <p class="sidebar-section-label">Manage</p>
+        <button class="sidebar-item" data-tab="products" onclick="switchTab('products')">
+          <i class="fas fa-box"></i> Products
+        </button>
+        <button class="sidebar-item" data-tab="orders" onclick="switchTab('orders')">
+          <i class="fas fa-shopping-cart"></i> Orders
+        </button>
+        <button class="sidebar-item" data-tab="messages" onclick="switchTab('messages')">
+          <i class="fas fa-envelope"></i> Messages
+        </button>
+
+        <p class="sidebar-section-label">Site</p>
+        <a href="/" target="_blank" class="sidebar-item">
+          <i class="fas fa-external-link-alt"></i> View Website
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button onclick="doLogout()">
+          <i class="fas fa-sign-out-alt"></i> Logout
+        </button>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <div class="dash-main">
+      <!-- Top Bar -->
+      <header class="dash-topbar">
+        <h2 id="topbar-title">Analytics Overview</h2>
+        <div class="dash-topbar-right">
+          <span class="topbar-badge" id="last-updated">Loading…</span>
+          <div class="avatar">A</div>
+        </div>
+      </header>
+
+      <!-- Content -->
+      <div class="dash-content">
+
+        <!-- ═══ ANALYTICS TAB ═══ -->
+        <div class="tab-panel active" id="tab-analytics">
+
+          <div class="analytics-note">
+            <i class="fas fa-info-circle"></i>
+            Analytics are stored server-side and update in real time across all devices and sessions.
+          </div>
+
+          <!-- Metric Cards -->
+          <div class="analytics-grid">
+            <div class="stat-card">
+              <div class="stat-card-icon ic-red"><i class="fas fa-key"></i></div>
+              <div class="stat-card-label">Password Attempts</div>
+              <div class="stat-card-value" id="m-pw">—</div>
+              <div class="stat-card-sub">Total admin login tries</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-card-icon ic-brown"><i class="fas fa-shopping-bag"></i></div>
+              <div class="stat-card-label">Order Now Clicks</div>
+              <div class="stat-card-value" id="m-order">—</div>
+              <div class="stat-card-sub">Hero button clicks</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-card-icon ic-green"><i class="fas fa-check-circle"></i></div>
+              <div class="stat-card-label">Completed Checkouts</div>
+              <div class="stat-card-value" id="m-checkout">—</div>
+              <div class="stat-card-sub">Orders placed via server</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-card-icon ic-blue"><i class="fas fa-envelope"></i></div>
+              <div class="stat-card-label">Contact Submissions</div>
+              <div class="stat-card-value" id="m-contact">—</div>
+              <div class="stat-card-sub">Contact form submissions</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-card-icon ic-amber"><i class="fas fa-users"></i></div>
+              <div class="stat-card-label">Recorded Sessions</div>
+              <div class="stat-card-value" id="m-sessions">—</div>
+              <div class="stat-card-sub">Browser sessions tracked</div>
+            </div>
+          </div>
+
+          <!-- Time on Site -->
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--brown-dark);margin-bottom:1rem;">
+            ⏱ Time on Site
+          </h3>
+          <div class="time-grid">
+            <div class="time-card">
+              <div class="tc-label">Highest Session</div>
+              <div class="tc-val" id="t-max">—</div>
+              <div class="tc-unit">minutes : seconds</div>
+            </div>
+            <div class="time-card">
+              <div class="tc-label">Lowest Session</div>
+              <div class="tc-val" id="t-min">—</div>
+              <div class="tc-unit">minutes : seconds</div>
+            </div>
+            <div class="time-card">
+              <div class="tc-label">Average Session</div>
+              <div class="tc-val" id="t-avg">—</div>
+              <div class="tc-unit">minutes : seconds</div>
+            </div>
+          </div>
+
+          <!-- Current Session live -->
+          <div class="live-session-card">
+            <div>
+              <div style="font-size:0.78rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">
+                Current Session (Live)
+              </div>
+              <div style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--brown);" id="live-timer">00:00</div>
+            </div>
+            <div class="live-dot">
+              <i class="fas fa-circle" style="font-size:0.5rem;animation:pulse 1.5s ease infinite;"></i>
+            </div>
+          </div>
+
+          <!-- Controls -->
+          <div style="margin-top:1.5rem;display:flex;gap:1rem;">
+            <button class="btn btn-ghost" onclick="refreshAnalytics()">
+              <i class="fas fa-sync-alt"></i> Refresh
+            </button>
+            <button class="btn btn-danger" onclick="confirmResetAnalytics()">
+              <i class="fas fa-trash"></i> Reset All Analytics
+            </button>
+          </div>
+        </div><!-- /tab-analytics -->
+
+        <!-- ═══ PRODUCTS TAB ═══ -->
+        <div class="tab-panel" id="tab-products">
+          <div class="section-header">
+            <h3>Product Catalogue</h3>
+            <button class="btn btn-primary" onclick="toggleAddPanel()">
+              <i class="fas fa-plus"></i> Add Product
+            </button>
+          </div>
+
+          <!-- Add Product Form -->
+          <div class="add-product-panel" id="add-panel">
+            <h4><i class="fas fa-plus-circle" style="color:var(--brown);"></i> New Product</h4>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Name (English) *</label>
+                <input type="text" id="np-name-en" placeholder="e.g. Chocolate Wafer">
+              </div>
+              <div class="form-group">
+                <label>Name (Arabic) *</label>
+                <input type="text" id="np-name-ar" placeholder="e.g. ويفر شوكولاتة">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Description (English)</label>
+                <input type="text" id="np-desc-en" placeholder="Short description">
+              </div>
+              <div class="form-group">
+                <label>Description (Arabic)</label>
+                <input type="text" id="np-desc-ar" placeholder="وصف قصير">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Category *</label>
+                <select id="np-cat">
+                  <option value="biscuit">Biscuit</option>
+                  <option value="wafer">Wafer</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Price (EGP) *</label>
+                <input type="number" id="np-price" placeholder="50" min="1">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Image path (optional)</label>
+                <input type="text" id="np-image" placeholder="images/product.png">
+              </div>
+              <div class="form-group">
+                <label>Emoji fallback</label>
+                <input type="text" id="np-emoji" placeholder="🍪" maxlength="4">
+              </div>
+            </div>
+            <div class="form-actions">
+              <button class="btn btn-primary" onclick="addProduct()">
+                <i class="fas fa-check"></i> Save Product
+              </button>
+              <button class="btn btn-ghost" onclick="toggleAddPanel()">
+                <i class="fas fa-times"></i> Cancel
+              </button>
+            </div>
+          </div>
+
+          <!-- Products Table -->
+          <div class="product-table-wrap">
+            <table id="product-table">
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th>Category</th>
+                  <th>Price</th>
+                  <th>Arabic Name</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="product-tbody">
+                <tr><td colspan="5" style="text-align:center;padding:2rem;color:var(--text-muted);">Loading…</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div><!-- /tab-products -->
+
+        <!-- ═══ ORDERS TAB ═══ -->
+        <div class="tab-panel" id="tab-orders">
+          <div class="section-header">
+            <h3>Orders</h3>
+            <button class="btn btn-ghost" onclick="loadOrders()">
+              <i class="fas fa-sync-alt"></i> Refresh
+            </button>
+          </div>
+          <div class="orders-table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Order ID</th>
+                  <th>Customer</th>
+                  <th>Items</th>
+                  <th>Total</th>
+                  <th>Status</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody id="orders-tbody">
+                <tr><td colspan="6" style="text-align:center;padding:2rem;color:var(--text-muted);">Loading…</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div><!-- /tab-orders -->
+
+        <!-- ═══ MESSAGES TAB ═══ -->
+        <div class="tab-panel" id="tab-messages">
+          <div class="section-header">
+            <h3>Contact Messages</h3>
+            <button class="btn btn-ghost" onclick="loadMessages()">
+              <i class="fas fa-sync-alt"></i> Refresh
+            </button>
+          </div>
+          <div id="messages-list">
+            <div style="text-align:center;padding:2rem;color:var(--text-muted);">Loading…</div>
+          </div>
+        </div><!-- /tab-messages -->
+
+      </div><!-- /dash-content -->
+    </div><!-- /dash-main -->
+  </div><!-- /dashboard -->
+
+  <!-- ══════════════════════════════════════════
+     CONFIRM MODAL
+  ══════════════════════════════════════════ -->
+  <div class="modal-overlay" id="confirm-modal" role="dialog" aria-modal="true">
+    <div class="modal-box">
+      <div class="modal-icon" id="modal-icon">⚠️</div>
+      <h3 id="modal-title">Are you sure?</h3>
+      <p id="modal-desc">This action cannot be undone.</p>
+      <div class="modal-btns">
+        <button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
+        <button class="btn btn-danger" id="modal-confirm-btn">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="admin-toast" id="admin-toast" role="status" aria-live="polite"></div>
+
+  <script src="/js/admin.js"></script>
+</body>
+</html>

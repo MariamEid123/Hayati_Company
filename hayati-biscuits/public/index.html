@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light" data-lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Hayati Biscuits – Premium quality biscuits and wafers crafted with the finest ingredients. Free delivery across Alexandria.">
+  <meta property="og:title" content="Hayati Biscuits | حياتي بسكويت">
+  <meta property="og:description" content="Premium biscuits and wafers made in Alexandria since 1978. Order now with free delivery!">
+  <!-- Security: prevent clickjacking -->
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <title>Hayati Biscuits | حياتي بسكويت</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍪</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:wght@400;500;600;700;800&family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+
+  <!-- ══════════════════════ NAVIGATION ══════════════════════ -->
+  <nav>
+    <a href="#" class="nav-brand" onclick="showPage('home'); return false;">
+      <div class="logo-circle">H</div>
+      <span class="en-inline">Hayati Biscuits</span>
+      <span class="ar-inline">حياتي بسكويت</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#" onclick="showPage('home'); return false;" id="nav-home" class="active">
+          <span class="en-inline">Home</span><span class="ar-inline">الرئيسية</span>
+      </a></li>
+      <li><a href="#" onclick="showPage('about'); return false;" id="nav-about">
+          <span class="en-inline">About</span><span class="ar-inline">من نحن</span>
+      </a></li>
+      <li><a href="#" onclick="showPage('products'); return false;" id="nav-products">
+          <span class="en-inline">Products</span><span class="ar-inline">المنتجات</span>
+      </a></li>
+      <li><a href="#" onclick="showPage('contact'); return false;" id="nav-contact">
+          <span class="en-inline">Contact</span><span class="ar-inline">تواصل معنا</span>
+      </a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="icon-btn" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle dark mode">
+        <i class="fas fa-moon" id="theme-icon"></i>
+      </button>
+      <button class="icon-btn lang-btn" onclick="toggleLang()" aria-label="Switch language">
+        <span class="en-inline">عربي</span><span class="ar-inline">EN</span>
+      </button>
+      <button class="icon-btn cart-btn" onclick="toggleCart()" aria-label="Open cart">
+        <i class="fas fa-shopping-bag"></i>
+        <span class="cart-count" id="cart-count">0</span>
+      </button>
+      <button class="icon-btn hamburger" onclick="toggleMobile()" aria-label="Open menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#" onclick="showPage('home'); toggleMobile(); return false;">
+      <span class="en-inline">Home</span><span class="ar-inline">الرئيسية</span>
+    </a>
+    <a href="#" onclick="showPage('about'); toggleMobile(); return false;">
+      <span class="en-inline">About</span><span class="ar-inline">من نحن</span>
+    </a>
+    <a href="#" onclick="showPage('products'); toggleMobile(); return false;">
+      <span class="en-inline">Products</span><span class="ar-inline">المنتجات</span>
+    </a>
+    <a href="#" onclick="showPage('contact'); toggleMobile(); return false;">
+      <span class="en-inline">Contact</span><span class="ar-inline">تواصل معنا</span>
+    </a>
+  </div>
+
+  <!-- ══════════════════════ MAIN ══════════════════════ -->
+  <main>
+
+    <!-- ═══════ HOME PAGE ═══════ -->
+    <div id="page-home" class="page active">
+
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-content">
+          <div class="hero-badge"><i class="fas fa-star"></i>
+            <span class="en-inline">Made with Love in Egypt</span>
+            <span class="ar-inline">صُنع بحب في مصر</span>
+          </div>
+          <h1 class="en-text">A taste that <span>sweetens</span> your day</h1>
+          <h1 class="ar-text">طعم يُحلّي <span>يومك</span></h1>
+          <p class="en-text">Premium biscuits and wafers crafted with the finest ingredients for unforgettable moments of joy with your family.</p>
+          <p class="ar-text">بسكويت وويفر فاخر مصنوع من أجود المكونات لأوقات لا تُنسى مع عائلتك.</p>
+          <div class="hero-btns">
+            <button class="btn-primary" onclick="trackOrderNow(); showPage('products');">
+              <i class="fas fa-shopping-bag"></i>
+              <span class="en-inline">Order Now</span><span class="ar-inline">اطلب الآن</span>
+            </button>
+            <button class="btn-secondary" onclick="showPage('about'); return false;">
+              <span class="en-inline">Learn More</span><span class="ar-inline">اعرف أكثر</span>
+              <i class="fas fa-arrow-right en-inline"></i><i class="fas fa-arrow-left ar-inline"></i>
+            </button>
+          </div>
+          <div class="hero-stats">
+            <div class="stat">
+              <div class="stat-num">10+</div>
+              <div class="stat-label en-text">Products</div>
+              <div class="stat-label ar-text">منتج</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">10K+</div>
+              <div class="stat-label en-text">Happy Customers</div>
+              <div class="stat-label ar-text">عميل سعيد</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">48+</div>
+              <div class="stat-label en-text">Years of Trust</div>
+              <div class="stat-label ar-text">سنة ثقة</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-img-wrap">
+            <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur in="SourceGraphic" stdDeviation="3"/>
+                </filter>
+                <clipPath id="circleMask">
+                  <circle cx="150" cy="150" r="140"/>
+                </clipPath>
+              </defs>
+              <circle cx="150" cy="150" r="145" fill="#fcf3e8"/>
+              <image href="\images\Genral.png" x="10" y="10" width="280" height="280" preserveAspectRatio="xMidYMid slice" clip-path="url(#circleMask)" loading="lazy"/>
+              <ellipse cx="150" cy="240" rx="80" ry="15" fill="#D4A57A" opacity="0.15" filter="url(#softGlow)"/>
+              <g opacity="0.7">
+                <text x="40" y="60" font-size="12" fill="#F5C842">★</text>
+                <text x="255" y="55" font-size="10" fill="#F5C842">★</text>
+                <circle cx="265" cy="235" r="7" fill="#F07070" opacity="0.2"/>
+                <circle cx="45" cy="255" r="5" fill="#4A8FA8" opacity="0.15"/>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- FEATURES -->
+      <section class="features">
+        <p class="section-label en-text">Why Choose Us</p>
+        <p class="section-label ar-text">لماذا تختارنا</p>
+        <h2 class="section-title en-text">The Hayati Difference</h2>
+        <h2 class="section-title ar-text">ما يميز حياتي</h2>
+        <p class="section-sub en-text">We believe every product should be a moment of happiness.</p>
+        <p class="section-sub ar-text">نؤمن بأن كل منتج يجب أن يكون لحظة سعادة.</p>
+        <div class="features-grid">
+          <div class="feature-card reveal">
+            <div class="feature-icon icon-brown"><i class="fas fa-medal"></i></div>
+            <h3 class="en-text">Premium Quality</h3><h3 class="ar-text">جودة عالية</h3>
+            <p class="en-text">Only the finest ingredients selected with care to deliver consistent, delicious taste every single time.</p>
+            <p class="ar-text">فقط أجود المكونات المختارة بعناية لتقديم طعم لذيذ ومتسق في كل مرة.</p>
+          </div>
+          <div class="feature-card reveal">
+            <div class="feature-icon icon-red"><i class="fas fa-tag"></i></div>
+            <h3 class="en-text">Very Affordable Prices</h3><h3 class="ar-text">أسعار في متناول الجميع</h3>
+            <p class="en-text">Great taste shouldn't cost a fortune. We keep our prices fair so every family can enjoy Hayati.</p>
+            <p class="ar-text">الطعم الرائع لا يجب أن يكلف كثيراً. نحافظ على أسعار معقولة لكل عائلة.</p>
+          </div>
+          <div class="feature-card reveal">
+            <div class="feature-icon icon-blue"><i class="fas fa-heart"></i></div>
+            <h3 class="en-text">Trusted Taste</h3><h3 class="ar-text">طعم موثوق</h3>
+            <p class="en-text">Over 50 years of crafting biscuits beloved by thousands of Egyptian families across the country.</p>
+            <p class="ar-text">أكثر من 50 عاماً في صناعة البسكويت المحبوب من آلاف العائلات المصرية.</p>
+          </div>
+          <div class="feature-card reveal">
+            <div class="feature-icon icon-brown"><i class="fas fa-truck"></i></div>
+            <h3 class="en-text">Free Delivery</h3><h3 class="ar-text">توصيل مجاني</h3>
+            <p class="en-text">Free and fast delivery to all over Alexandria.</p>
+            <p class="ar-text">توصيل مجاني وسريع لأهالي الأسكندرية.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRODUCTS PREVIEW (home) -->
+      <section class="products-section">
+        <p class="section-label en-text">Our Products</p>
+        <p class="section-label ar-text">منتجاتنا</p>
+        <h2 class="section-title en-text">Popular Picks</h2>
+        <h2 class="section-title ar-text">الأكثر طلباً</h2>
+        <p class="section-sub en-text">Handpicked favourites loved by our customers.</p>
+        <p class="section-sub ar-text">أفضل منتجاتنا التي يحبها عملاؤنا.</p>
+        <div class="products-grid" id="home-products"></div>
+        <div style="text-align:center; margin-top:2.5rem;">
+          <button class="btn-primary" onclick="showPage('products')">
+            <span class="en-inline">View All Products</span><span class="ar-inline">عرض كل المنتجات</span>
+            <i class="fas fa-arrow-right en-inline"></i><i class="fas fa-arrow-left ar-inline"></i>
+          </button>
+        </div>
+      </section>
+
+    </div><!-- /page-home -->
+
+    <!-- ═══════ ABOUT PAGE ═══════ -->
+    <div id="page-about" class="page">
+      <section class="about-section" style="padding-top:100px;">
+        <div class="about-grid">
+          <div class="about-img-wrap">
+            <svg viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg" style="width:75%">
+              <rect x="40" y="120" width="240" height="100" rx="4" fill="#C8915A" opacity="0.9"/>
+              <rect x="60" y="80" width="80" height="60" rx="4" fill="#B8815A"/>
+              <rect x="180" y="90" width="70" height="50" rx="4" fill="#B8815A"/>
+              <rect x="75" y="95" width="20" height="20" rx="3" fill="#4A8FA8" opacity="0.7"/>
+              <rect x="105" y="95" width="20" height="20" rx="3" fill="#4A8FA8" opacity="0.7"/>
+              <rect x="130" y="155" width="50" height="65" rx="4" fill="#7B3A1A"/>
+              <rect x="100" y="130" width="120" height="22" rx="4" fill="#7B3A1A"/>
+              <text x="160" y="146" text-anchor="middle" font-size="11" fill="white" font-weight="bold">HAYATI BISCUITS</text>
+              <text x="20" y="50" font-size="16" fill="#F5C842">★</text>
+              <text x="285" y="70" font-size="12" fill="#F5C842">★</text>
+            </svg>
+          </div>
+          <div class="about-content">
+            <p class="section-label en-text">Our Story</p>
+            <p class="section-label ar-text">قصتنا</p>
+            <h2 class="en-text">Crafting Joy Since 1978</h2>
+            <h2 class="ar-text">نصنع السعادة منذ 1978</h2>
+            <p class="en-text">Hayaty Biscuits was established in 1978 in Alexandria by its owner, El-Hajj Khamis Eid. Over the past 50 years, the company has earned the trust of its customers through premium quality ingredients and competitive pricing, driven by our core belief that our customers always deserve the best.</p>
+            <p class="ar-text">نشأت شركة حياتي للبسكويت عام 1978 في الأسكندرية لصاحبها الحج خميس عيد، واكتسبت ثقة عملائها على مدار 50 عام من ناحية جودة المدخلات والأسعار المناسبة لأننا نؤمن بأن عملاءنا يستحقون الأفضل دائماً.</p>
+            <div class="about-badge-wrap">
+              <span class="about-badge"><i class="fas fa-check-circle"></i>
+                <span class="en-inline">ISO Certified</span><span class="ar-inline">معتمد ISO</span>
+              </span>
+              <span class="about-badge"><i class="fas fa-leaf"></i>
+                <span class="en-inline">Natural Ingredients</span><span class="ar-inline">مكونات طبيعية</span>
+              </span>
+              <span class="about-badge"><i class="fas fa-award"></i>
+                <span class="en-inline">Award Winning</span><span class="ar-inline">حائز جوائز</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div><!-- /page-about -->
+
+    <!-- ═══════ PRODUCTS PAGE ═══════ -->
+    <div id="page-products" class="page">
+      <section class="products-section" style="padding-top:100px;">
+        <p class="section-label en-text">Browse Our Range</p>
+        <p class="section-label ar-text">تصفح منتجاتنا</p>
+        <h2 class="section-title en-text">All Products</h2>
+        <h2 class="section-title ar-text">جميع المنتجات</h2>
+        <div class="filter-bar">
+          <button class="filter-btn active" onclick="filterProducts('all', this)">
+            <span class="en-inline">All</span><span class="ar-inline">الكل</span>
+          </button>
+          <button class="filter-btn" onclick="filterProducts('wafer', this)">
+            <span class="en-inline">Wafer</span><span class="ar-inline">ويفر</span>
+          </button>
+          <button class="filter-btn" onclick="filterProducts('biscuit', this)">
+            <span class="en-inline">Biscuit</span><span class="ar-inline">بسكويت</span>
+          </button>
+        </div>
+        <div class="products-grid" id="all-products"></div>
+      </section>
+    </div><!-- /page-products -->
+
+    <!-- ═══════ CONTACT PAGE ═══════ -->
+    <div id="page-contact" class="page">
+      <section class="contact-section" style="padding-top:100px;">
+        <p class="section-label en-text">Get In Touch</p>
+        <p class="section-label ar-text">تواصل معنا</p>
+        <h2 class="section-title en-text">Contact Us</h2>
+        <h2 class="section-title ar-text">اتصل بنا</h2>
+        <p class="section-sub en-text">We'd love to hear from you. Send us a message!</p>
+        <p class="section-sub ar-text">نسعد بالتواصل معك. أرسل لنا رسالة!</p>
+
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h3 class="en-text">Let's Talk</h3>
+            <h3 class="ar-text">تحدث معنا</h3>
+            <p class="en-text">Whether you have a question about our products, need help with an order, or want to become a distributor — we're here.</p>
+            <p class="ar-text">سواء كان لديك سؤال عن منتجاتنا أو تحتاج مساعدة في طلب أو تريد أن تصبح موزعاً — نحن هنا.</p>
+            <div class="contact-item">
+              <div class="contact-icon icon-brown"><i class="fas fa-phone"></i></div>
+              <div>
+                <h4 class="en-text">Phone / WhatsApp</h4><h4 class="ar-text">هاتف / واتساب</h4>
+                <p style="direction:ltr;unicode-bidi:bidi-override;display:inline-block;">+20 122 797 7347</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon icon-blue"><i class="fas fa-map-marker-alt"></i></div>
+              <div>
+                <h4 class="en-text">Location</h4><h4 class="ar-text">الموقع</h4>
+                <p class="en-text">Alexandria, Egypt</p><p class="ar-text">الإسكندرية، مصر</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon icon-red"><i class="fas fa-clock"></i></div>
+              <div>
+                <h4 class="en-text">Working Hours</h4><h4 class="ar-text">ساعات العمل</h4>
+                <p class="en-text">Sat–Thu: 9am – 6pm</p><p class="ar-text">السبت – الخميس: 9 ص – 6 م</p>
+              </div>
+            </div>
+            <div class="social-links">
+              <a href="https://wa.me/201227977347" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+              <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+
+          <div class="contact-form">
+            <div class="form-group">
+              <label><span class="en-inline">Full Name *</span><span class="ar-inline">الاسم الكامل *</span></label>
+              <input type="text" id="contact-name" autocomplete="name" placeholder="Ahmed Mohamed">
+            </div>
+            <div class="form-group">
+              <label><span class="en-inline">Phone</span><span class="ar-inline">الهاتف</span></label>
+              <input type="tel" id="contact-phone" autocomplete="tel" placeholder="+20 1XX XXX XXXX">
+            </div>
+            <div class="form-group">
+              <label><span class="en-inline">Email</span><span class="ar-inline">البريد الإلكتروني</span></label>
+              <input type="email" id="contact-email" autocomplete="email" placeholder="you@example.com">
+            </div>
+            <div class="form-group">
+              <label><span class="en-inline">Message *</span><span class="ar-inline">الرسالة *</span></label>
+              <textarea id="contact-msg" placeholder="How can we help you?"></textarea>
+            </div>
+            <button class="btn-primary" onclick="sendContact()" style="width:100%; justify-content:center;">
+              <i class="fas fa-paper-plane"></i>
+              <span class="en-inline">Send Message</span><span class="ar-inline">إرسال الرسالة</span>
+            </button>
+          </div>
+        </div>
+      </section>
+    </div><!-- /page-contact -->
+
+  </main>
+
+  <!-- ══════════════════════ FOOTER ══════════════════════ -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo-circle">H</div>
+        <p class="en-text">Premium biscuits crafted in Alexandria since 1978. Every bite is a memory.</p>
+        <p class="ar-text">بسكويت فاخر صُنع في الإسكندرية منذ 1978. كل قضمة ذكرى.</p>
+      </div>
+      <div class="footer-col">
+        <h4 class="en-text">Quick Links</h4><h4 class="ar-text">روابط سريعة</h4>
+        <ul>
+          <li><a href="#" onclick="showPage('home'); return false;"><span class="en-inline">Home</span><span class="ar-inline">الرئيسية</span></a></li>
+          <li><a href="#" onclick="showPage('about'); return false;"><span class="en-inline">About</span><span class="ar-inline">من نحن</span></a></li>
+          <li><a href="#" onclick="showPage('products'); return false;"><span class="en-inline">Products</span><span class="ar-inline">المنتجات</span></a></li>
+          <li><a href="#" onclick="showPage('contact'); return false;"><span class="en-inline">Contact</span><span class="ar-inline">تواصل معنا</span></a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="en-text">Follow Us</h4><h4 class="ar-text">تابعنا</h4>
+        <ul>
+          <li><a href="https://wa.me/201227977347" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Hayati Biscuits | حياتي بسكويت. <span class="en-inline">All rights reserved.</span><span class="ar-inline">جميع الحقوق محفوظة.</span></p>
+      <a href="/admin" style="opacity:0.4; font-size:0.75rem;">Admin</a>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════ CART DRAWER ══════════════════════ -->
+  <div class="overlay" id="overlay" onclick="closeCart()"></div>
+  <aside class="cart-drawer" id="cart-drawer" role="dialog" aria-label="Shopping cart">
+    <div class="cart-header">
+      <h3><i class="fas fa-shopping-bag" style="color:var(--brown);margin-right:8px;"></i>
+        <span class="en-inline">Your Cart</span><span class="ar-inline">سلتك</span>
+      </h3>
+      <button class="close-btn" onclick="closeCart()" aria-label="Close cart"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="cart-items" id="cart-items-list"></div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span class="cart-total-label en-inline">Total:</span>
+        <span class="cart-total-label ar-inline">الإجمالي:</span>
+        <span class="cart-total-val" id="cart-total-val">0 <span>EGP</span></span>
+      </div>
+      <div class="min-order-note" id="min-note">
+        <span class="en-inline">Minimum order: 150 EGP</span>
+        <span class="ar-inline">الحد الأدنى للطلب: 150 جنيه</span>
+      </div>
+      <button class="btn-primary checkout-btn" id="checkout-btn" onclick="openCheckout()" disabled style="opacity:0.5;">
+        <i class="fas fa-lock"></i>
+        <span class="en-inline">Checkout</span><span class="ar-inline">إتمام الطلب</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ══════════════════════ CHECKOUT MODAL ══════════════════════ -->
+  <div class="checkout-modal" id="checkout-modal" role="dialog" aria-label="Checkout">
+    <div class="checkout-bg" onclick="closeCheckout()"></div>
+    <div class="checkout-box">
+      <div id="checkout-form-wrap">
+        <h3 class="en-text">Complete Your Order</h3>
+        <h3 class="ar-text">أكمل طلبك</h3>
+        <div class="checkout-summary" id="checkout-summary"></div>
+        <div class="form-group">
+          <label><span class="en-inline">Full Name *</span><span class="ar-inline">الاسم الكامل *</span></label>
+          <input type="text" id="co-name" autocomplete="name" placeholder="Ahmed Mohamed">
+        </div>
+        <div class="form-group">
+          <label><span class="en-inline">Phone Number *</span><span class="ar-inline">رقم الهاتف *</span></label>
+          <input type="tel" id="co-phone" autocomplete="tel" placeholder="+20 1XX XXX XXXX">
+        </div>
+        <div class="form-group">
+          <label><span class="en-inline">Delivery Address *</span><span class="ar-inline">عنوان التوصيل *</span></label>
+          <textarea id="co-address" placeholder="Street, Area, City..."></textarea>
+        </div>
+        <div class="form-group">
+          <label><span class="en-inline">Payment Method</span><span class="ar-inline">طريقة الدفع</span></label>
+          <select id="co-payment">
+            <option value="Cash on Delivery">Cash on Delivery / الدفع عند الاستلام</option>
+            <option value="Bank Transfer">Bank Transfer / تحويل بنكي</option>
+            <option value="Instapay">InstaPay</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label><span class="en-inline">Notes (optional)</span><span class="ar-inline">ملاحظات (اختياري)</span></label>
+          <textarea id="co-notes" placeholder="Any special instructions..."></textarea>
+        </div>
+        <div style="display:flex; gap:1rem; margin-top:1.5rem;">
+          <button class="btn-secondary" onclick="closeCheckout()" style="flex:1; justify-content:center;">
+            <span class="en-inline">Cancel</span><span class="ar-inline">إلغاء</span>
+          </button>
+          <button class="btn-primary" onclick="placeOrder()" style="flex:2; justify-content:center;">
+            <i class="fas fa-check"></i>
+            <span class="en-inline">Place Order</span><span class="ar-inline">تأكيد الطلب</span>
+          </button>
+        </div>
+      </div>
+      <div class="success-msg" id="success-msg">
+        <div class="success-icon">🎉</div>
+        <h3 class="en-text">Order Placed Successfully!</h3>
+        <h3 class="ar-text">تم تأكيد طلبك!</h3>
+        <p class="en-text">Thank you! We'll call you soon to confirm your delivery.</p>
+        <p class="ar-text">شكراً! سنتصل بك قريباً لتأكيد التوصيل.</p>
+        <button class="btn-primary" onclick="closeCheckout()" style="margin-top:1.5rem;">
+          <span class="en-inline">Continue Shopping</span><span class="ar-inline">مواصلة التسوق</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════ HELP FAB ══════════════════════ -->
+  <button class="help-fab" id="help-fab" onclick="toggleHelp()" title="How to order?" aria-label="Help">
+    <i class="fas fa-question"></i>
+  </button>
+
+  <div class="help-panel" id="help-panel" role="dialog" aria-label="How to order">
+    <div class="help-panel-header">
+      <div class="help-panel-header-left">
+        <div class="help-panel-header-icon"><i class="fas fa-book-open"></i></div>
+        <div>
+          <h4 class="en-text">How to Order</h4><h4 class="ar-text">كيف تطلب؟</h4>
+          <p class="en-text">Follow these simple steps</p><p class="ar-text">اتبع هذه الخطوات البسيطة</p>
+        </div>
+      </div>
+      <button class="help-close-btn" onclick="toggleHelp()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="help-body">
+      <div class="help-step">
+        <div class="help-step-num">1</div>
+        <div class="help-step-content">
+          <h5 class="en-text">Browse Products</h5><h5 class="ar-text">تصفح المنتجات</h5>
+          <p class="en-text">Go to the <strong>Products</strong> page from the top navigation.</p>
+          <p class="ar-text">اذهب إلى صفحة <strong>المنتجات</strong> من القائمة العلوية.</p>
+        </div>
+      </div>
+      <div class="help-step">
+        <div class="help-step-num">2</div>
+        <div class="help-step-content">
+          <h5 class="en-text">Add to Cart</h5><h5 class="ar-text">أضف إلى السلة</h5>
+          <p class="en-text">Click the <strong>+</strong> button on any product card.</p>
+          <p class="ar-text">اضغط زر <strong>+</strong> على أي منتج.</p>
+        </div>
+      </div>
+      <div class="help-step">
+        <div class="help-step-num">3</div>
+        <div class="help-step-content">
+          <h5 class="en-text">Review Cart</h5><h5 class="ar-text">راجع السلة</h5>
+          <p class="en-text">Click the cart icon to review your products.</p>
+          <p class="ar-text">اضغط أيقونة السلة لمراجعة المنتجات.</p>
+        </div>
+      </div>
+      <div class="help-step">
+        <div class="help-step-num">4</div>
+        <div class="help-step-content">
+          <h5 class="en-text">Checkout</h5><h5 class="ar-text">إتمام الطلب</h5>
+          <p class="en-text">Press <strong>Checkout</strong> (minimum 150 EGP), fill in details, confirm.</p>
+          <p class="ar-text">اضغط <strong>إتمام الطلب</strong> (حد أدنى 150 جنيه)، أدخل بياناتك.</p>
+        </div>
+      </div>
+      <div class="help-step">
+        <div class="help-step-num">5</div>
+        <div class="help-step-content">
+          <h5 class="en-text">WhatsApp Confirmation</h5><h5 class="ar-text">تأكيد عبر واتساب</h5>
+          <p class="en-text">Your order is sent via <strong>WhatsApp</strong>. We'll confirm delivery!</p>
+          <p class="ar-text">سيُرسل طلبك عبر <strong>واتساب</strong>. سنتصل بك!</p>
+        </div>
+      </div>
+      <hr class="help-divider">
+      <div class="help-tip">
+        <i class="fas fa-lightbulb" style="flex-shrink:0;margin-top:2px;"></i>
+        <span class="en-text">Tip: Use filter buttons (Wafer / Biscuit) to find products faster!</span>
+        <span class="ar-text">نصيحة: استخدم أزرار التصفية للعثور على ما تحب بسرعة!</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll to top -->
+  <button class="scroll-top-btn" id="scroll-top-btn" onclick="scrollToTop()" aria-label="Scroll to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

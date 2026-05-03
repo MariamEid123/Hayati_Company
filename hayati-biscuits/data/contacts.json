@@ -1,0 +1,20 @@
+[
+  {
+    "id": "f8671335-ceb9-4537-a002-ee802422223f",
+    "name": "Mariam Hassan Khamis Eid",
+    "phone": "+201225392726",
+    "email": "mariam.eid.2026@aiu.edu.eg",
+    "message": "hi",
+    "read": true,
+    "createdAt": "2026-04-29T15:54:14.108Z"
+  },
+  {
+    "id": "1469545b-8e15-4b5e-bac6-90366da078a3",
+    "name": "Mariam Hassan Khamis Eid",
+    "phone": "+201225392726",
+    "email": "mariam.eid.2026@aiu.edu.eg",
+    "message": "hello",
+    "read": true,
+    "createdAt": "2026-05-03T17:19:17.509Z"
+  }
+]
